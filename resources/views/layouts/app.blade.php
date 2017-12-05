@@ -28,8 +28,8 @@
 
         <div class="nav-right" style="overflow: visible;">
           @if (Auth::guest())
-            <a class="nav-item is-tab">Login</a>
-            <a class="nav-item is-tab">Join the Community</a>
+            <a class="nav-item is-tab" href="{{route('login')}}">Login</a>
+            <a class="nav-item is-tab" href="{{route('register')}}">Join the Community</a>
           @else
             <button class="dropdown nav-item is-tab is-aligned-right">
               Hey {{ Auth::user()->name }}
@@ -51,7 +51,7 @@
                   Setting
                 </a></li>
                 <li class="seperator"></li>
-                <li><a href="#">
+                <li><a href="{{route('logout')}}">
                   <span class="icon"><i class="fa fa-fw fa-sign-out m-r-10"></i></span>
                   Logout
                 </a></li>

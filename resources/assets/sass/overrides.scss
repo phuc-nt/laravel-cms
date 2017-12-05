@@ -1,43 +1,62 @@
+/* ========================================
+   =========== Text Override ==========
+   ======================================== */
+.is-muted {
+  color: $grey-light !important;
+}
+
+a.is-muted:hover {
+  color: $grey !important;
+}
+
+/* ========================================
+   =========== Dropdown Override ==========
+   ======================================== */
+
+// Bulma doesn't come with a dropdown, so I have to take
+// matters into my own hands. This creates a dropdown menu
 .dropdown {
+  position: relative;
+}
 
-  .dropdown-menu {
-    display: none;
-    position: absolute;
-    left: 0;
-    top: 100%;
-    z-index: 1000;
-    background-color: white;
-    min-width: 200px;
-    text-align: left;
-    box-shadow: 0 0 1px rgba(57,70,78,.15), 0 20px 55px -8px rgba(57,70,78,.25);
+.dropdown-menu {
+  box-shadow: 0 0 8px #777;
+  display: none;
+  left: 0;
+  position: absolute;
+  top: 102%;
+  z-index: 1000;
+  padding: 10px 0 0px 0;
+  min-width: 200px;
+  box-shadow: 0 0 1px rgba(57,70,78,.15), 0 20px 55px -8px rgba(57,70,78,.25);
+  text-align: left;
+  li {
+    &.seperator {
+      margin: 5px 0;
+      width: 100%;
+      border-top: 1px solid #ccc;
+    }
 
-    li {
-      &.seperator {
-        border-top: 1px solid #ccc;
-        margin: 5px 0;
-      }
-
-      &>a {
-        margin: 5px 0;
-        padding: 5px 0 5px 15px;
-        display: block;
-
-        &:hover {
-          background-color: whitesmoke;
-        }
+    &>a {
+      display: block;
+      padding: 5px 0 5px 15px;
+      margin: 5px 0;
+      &:hover {
+        background-color: whitesmoke;
       }
     }
   }
-
-  &.is-aligned-right .dropdown-menu {
-    right: 0;
-    left: auto;
-  }
-
-  &.is-open .dropdown-menu {
-    display: block;
-  }
 }
+
+.dropdown.is-open .dropdown-menu{
+  display: block;
+}
+
+.dropdown.is-aligned-right .dropdown-menu {
+  left: auto;
+  right: 0;
+}
+
 
 /* ========================================
    =========== Nav Item Override ==========
@@ -82,6 +101,7 @@ button.nav-item {
     padding-bottom: calc(0.75rem - 3px);
   }
 }
+
 
 .nav-item img {
   max-height: 2.8rem;

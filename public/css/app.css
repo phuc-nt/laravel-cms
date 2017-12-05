@@ -16179,41 +16179,64 @@ label.panel-block:hover {
   background: rgba(255, 56, 96, 0.05);
 }
 
-.dropdown .dropdown-menu {
+/* ========================================
+   =========== Text Override ==========
+   ======================================== */
+
+.is-muted {
+  color: #b5b5b5 !important;
+}
+
+a.is-muted:hover {
+  color: #7a7a7a !important;
+}
+
+/* ========================================
+   =========== Dropdown Override ==========
+   ======================================== */
+
+.dropdown {
+  position: relative;
+}
+
+.dropdown-menu {
+  -webkit-box-shadow: 0 0 8px #777;
+          box-shadow: 0 0 8px #777;
   display: none;
-  position: absolute;
   left: 0;
-  top: 100%;
+  position: absolute;
+  top: 102%;
   z-index: 1000;
-  background-color: white;
+  padding: 10px 0 0px 0;
   min-width: 200px;
-  text-align: left;
   -webkit-box-shadow: 0 0 1px rgba(57, 70, 78, 0.15), 0 20px 55px -8px rgba(57, 70, 78, 0.25);
           box-shadow: 0 0 1px rgba(57, 70, 78, 0.15), 0 20px 55px -8px rgba(57, 70, 78, 0.25);
+  text-align: left;
 }
 
-.dropdown .dropdown-menu li.seperator {
+.dropdown-menu li.seperator {
+  margin: 5px 0;
+  width: 100%;
   border-top: 1px solid #ccc;
-  margin: 5px 0;
 }
 
-.dropdown .dropdown-menu li > a {
-  margin: 5px 0;
-  padding: 5px 0 5px 15px;
+.dropdown-menu li > a {
   display: block;
+  padding: 5px 0 5px 15px;
+  margin: 5px 0;
 }
 
-.dropdown .dropdown-menu li > a:hover {
+.dropdown-menu li > a:hover {
   background-color: whitesmoke;
-}
-
-.dropdown.is-aligned-right .dropdown-menu {
-  right: 0;
-  left: auto;
 }
 
 .dropdown.is-open .dropdown-menu {
   display: block;
+}
+
+.dropdown.is-aligned-right .dropdown-menu {
+  left: auto;
+  right: 0;
 }
 
 /* ========================================
