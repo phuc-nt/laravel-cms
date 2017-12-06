@@ -19,7 +19,7 @@
 
   @include('_includes.nav.manage')
 
-  <div id="app">
+  <div class="management-area flex-container" id="app">
     @yield('content')
   </div>
 
