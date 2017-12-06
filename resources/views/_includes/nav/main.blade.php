@@ -36,7 +36,7 @@
                   </span>Notifications
                 </a>
             </li>
-            <li><a href="#">
+            <li><a href="{{route('manage.index')}}">
                   <span class="icon">
                     <i class="fa fa-fw fa-cog m-r-5"></i>
                   </span>Manage
