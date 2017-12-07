@@ -34,13 +34,18 @@
                 <td>{{ $user->name }}</td>
                 <td>{{ $user->email }}</td>
                 <td>{{ $user->created_at->toFormattedDateString() }}</td>
-                <td><a href="{{ route('users.edit', $user->id) }}" class="button is-outlined is-small">Edit</a></td>
+                <td>
+                  <a href="{{ route('users.edit', $user->id) }}" class="button is-small is-primary">Edit</a>
+                  <a href="{{ route('users.show', $user->id) }}" class="button is-small is-success">View</a>
+                </td>
               </tr>
             @endforeach
           </tbody>
         </table>
       </div>
-    </div>
+    </div> {{-- end of card --}}
+
+    {{$users->links()}}
 
   </div>
 @endsection

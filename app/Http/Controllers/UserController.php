@@ -15,7 +15,7 @@ class UserController extends Controller
      */
     public function index()
     {
-      $users = User::orderBy('id', 'desc')->paginate(2);
+      $users = User::orderBy('id', 'desc')->paginate(10);
       return view('manage.users.index')->with('users', $users);
     }
 
@@ -26,7 +26,7 @@ class UserController extends Controller
      */
     public function create()
     {
-        //
+      return view('manage.users.create');
     }
 
     /**
@@ -48,7 +48,8 @@ class UserController extends Controller
      */
     public function show($id)
     {
-        //
+      $user = User::find($id);
+      return view('manage.users.show')->with('user', $user);
     }
 
     /**
@@ -59,7 +60,8 @@ class UserController extends Controller
      */
     public function edit($id)
     {
-        //
+      $user = User::find($id);
+      return view('manage.users.edit')->with('user', $user);
     }
 
     /**
