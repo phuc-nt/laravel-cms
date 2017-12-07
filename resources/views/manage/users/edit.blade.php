@@ -55,13 +55,11 @@
 
 @section('scripts')
   <script>
-
-    // var app = new Vue({
-    //   el: '#app',
-    //   data: {
-    //     password_options: 'keep'
-    //   }
-    // });
-
+    var app = new Vue({
+      el: '#app',
+      data: {
+        password_options: 'keep'
+      }
+    });
   </script>
 @endsection

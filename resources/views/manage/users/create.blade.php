@@ -44,12 +44,12 @@
 @endsection
 
 @section('scripts')
-  {{-- <script>
-    const app = new Vue({
+  <script>
+    var app = new Vue({
       el: '#app',
       data: {
         auto_password:true
       }
     });
-  </script> --}}
+  </script>
 @endsection
