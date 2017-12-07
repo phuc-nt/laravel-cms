@@ -20,6 +20,18 @@
   @include('_includes.nav.manage')
 
   <div class="management-area flex-container" id="app">
+    @if (session('status'))
+        <div class="notification is-success">
+            {{ session('status') }}
+        </div>
+    @endif
+
+    @if (session('danger'))
+        <div class="notification is-danger">
+            {{ session('danger') }}
+        </div>
+    @endif
+
     @yield('content')
   </div>
 
