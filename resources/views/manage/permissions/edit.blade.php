@@ -4,7 +4,7 @@
   <div class="flex-container">
     <div class="columns m-t-10">
       <div class="column">
-        <h1 class="title">View Permission Details</h1>
+        <h1 class="title">Edit Permission</h1>
       </div> <!-- end of column -->
 
     </div>

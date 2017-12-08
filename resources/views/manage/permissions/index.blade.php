@@ -7,7 +7,9 @@
         <h1 class="title">Manage Permissions</h1>
       </div>
       <div class="column">
-        <a href="{{route('permissions.create')}}" class="button is-primary is-pulled-right"><i class="fa fa-user-plus m-r-10"></i> Create New Permission</a>
+        <a href="{{route('permissions.create')}}" class="button is-primary is-pulled-right">
+          <i class="fa fa-plus m-r-10"></i>
+          Create New Permission</a>
       </div>
     </div>
     <hr class="m-t-0">
@@ -31,7 +33,7 @@
                 <td>{{$permission->name}}</td>
                 <td>{{$permission->description}}</td>
                 <td class="has-text-right">
-                  <a href="{{route('permissions.show', $permission->id)}}" class="button is-success is-small m-r-5">View</a>
+                  <a href="{{route('permissions.show', $permission->id)}}" class="button is-light is-small m-r-5">View</a>
                   <a href="{{route('permissions.edit', $permission->id)}}" class="button is-primary is-small">Edit</a></td>
               </tr>
             @endforeach
