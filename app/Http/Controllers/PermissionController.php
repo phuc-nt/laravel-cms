@@ -65,6 +65,7 @@ class PermissionController extends Controller
           return redirect()->route('permissions.index');
         }
       } else {
+        Session::flash('danger', 'Sorry a problem occurred while creating this user.');
         return redirect()->route('permissions.create')->withInput();
       }
     }

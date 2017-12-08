@@ -30,7 +30,9 @@
                 <th>{{$permission->display_name}}</th>
                 <td>{{$permission->name}}</td>
                 <td>{{$permission->description}}</td>
-                <td class="has-text-right"><a class="button is-outlined is-small m-r-5" href="{{route('permissions.show', $permission->id)}}">View</a><a class="button is-outlined is-small" href="{{route('permissions.edit', $permission->id)}}">Edit</a></td>
+                <td class="has-text-right">
+                  <a href="{{route('permissions.show', $permission->id)}}" class="button is-success is-small m-r-5">View</a>
+                  <a href="{{route('permissions.edit', $permission->id)}}" class="button is-primary is-small">Edit</a></td>
               </tr>
             @endforeach
           </tbody>

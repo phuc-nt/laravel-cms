@@ -21,14 +21,26 @@
 
   <div class="management-area flex-container" id="app">
     @if (session('status'))
-        <div class="notification is-success">
+        <div class="notification is-status">
             {{ session('status') }}
+        </div>
+    @endif
+
+    @if (session('success'))
+        <div class="notification is-success">
+            {{ session('success') }}
         </div>
     @endif
 
     @if (session('danger'))
         <div class="notification is-danger">
             {{ session('danger') }}
+        </div>
+    @endif
+
+    @if (session('error'))
+        <div class="notification is-error">
+            {{ session('error') }}
         </div>
     @endif
 

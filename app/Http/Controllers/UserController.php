@@ -66,7 +66,7 @@ class UserController extends Controller
       $user->password = Hash::make($password);
 
       if ($user->save()) {
-        Session::flash('status', 'User Created Successfully');
+        Session::flash('success', 'User Created Successfully');
         return redirect()->route('users.show', $user->id);
       } else {
         Session::flash('danger', 'Sorry a problem occurred while creating this user.');
@@ -146,7 +146,7 @@ class UserController extends Controller
       }
 
       if ($user->save()) {
-        Session::flash('status', 'User Updated Successfully');
+        Session::flash('success', 'User Updated Successfully');
         return redirect()->route('users.show', $user->id);
       } else {
         Session::flash('danger', 'Sorry a problem occurred while creating this user.');
