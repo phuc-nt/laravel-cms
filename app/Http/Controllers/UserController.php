@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\User;
+use App\Role;
 use DB;
 use Hash;
 use Session;
@@ -82,7 +83,7 @@ class UserController extends Controller
      */
     public function show($id)
     {
-      $user = User::findOrFail($id);
+      $user = User::where('id', $id)->with('roles')->first();
       return view('manage.users.show')->with('user', $user);
     }
 
@@ -94,8 +95,9 @@ class UserController extends Controller
      */
     public function edit($id)
     {
-      $user = User::findOrFail($id);
-      return view('manage.users.edit')->with('user', $user);
+      $roles = Role::all();
+      $user = User::where('id', $id)->with('roles')->first();
+      return view('manage.users.edit')->with('user', $user)->with('roles', $roles);
     }
 
     /**
@@ -117,21 +119,6 @@ class UserController extends Controller
       $user->name = $request->name;
       $user->email = $request->email;
 
-      // if ($request->password_options == 'manual') {
-      //   # set a manual password
-      //   $user->password = Hash::make($request->password);
-      // } elseif ($request->password_options == 'auto') {
-      //   # generate a random password
-      //   $length = 10;
-      //   $keyspace = '123456789abcdefghijkmnopqrstuvwxyzABCDEFGHJKLMNPQRSTUVWXYZ';
-      //   $str = '';
-      //   $max = mb_strlen($keyspace, '8bit') - 1;
-      //   for ($i = 0; $i < $length; ++$i) {
-      //       $str .= $keyspace[random_int(0, $max)];
-      //   }
-      //   $user->password = Hash::make($str);
-      // }
-
       if ($request->password_options == 'auto') {
         $length = 10;
         $keyspace = '123456789abcdefghijkmnopqrstuvwxyzABCDEFGHJKLMNPQRSTUVWXYZ';
@@ -145,13 +132,19 @@ class UserController extends Controller
         $user->password = Hash::make($request->password);
       }
 
-      if ($user->save()) {
-        Session::flash('success', 'User Updated Successfully');
-        return redirect()->route('users.show', $user->id);
-      } else {
-        Session::flash('danger', 'Sorry a problem occurred while creating this user.');
-        return redirect()->route('users.index');
-      }
+      $user->save();
+      $user->syncRoles(explode(',', $request->roles));
+
+      Session::flash('success', 'User Updated Successfully');
+      return redirect()->route('users.show', $user->id);
+
+      // if () {
+      //   Session::flash('success', 'User Updated Successfully');
+      //   return redirect()->route('users.show', $user->id);
+      // } else {
+      // return redirect()->route('users.index');
+      //   Session::flash('danger', 'Sorry a problem occurred while creating this user.');
+      // }
     }
 
     /**

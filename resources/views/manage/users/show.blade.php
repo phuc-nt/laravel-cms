@@ -28,9 +28,15 @@
           <pre>{{ $user->email }}</pre>
         </div>
 
+        <div class="field">
+          <label for="roles" class="label">Roles</label>
+          {{ $user->roles->count() == 0 ? 'This user has not been assigned any role yet!' : '' }}
+          @foreach ($user->roles as $role)
+            <pre>{{ $role->display_name }}</pre>
+          @endforeach
+        </div>
       </div>
     </div>
-
   </div>
 @endsection
 
