@@ -963,7 +963,7 @@ module.exports = Cancel;
 /***/ (function(module, exports, __webpack_require__) {
 
 __webpack_require__(10);
-module.exports = __webpack_require__(38);
+module.exports = __webpack_require__(39);
 
 
 /***/ }),
@@ -997,7 +997,7 @@ $(document).ready(function () {
   });
 });
 
-__webpack_require__(48);
+__webpack_require__(38);
 
 /***/ }),
 /* 11 */
@@ -40299,24 +40299,16 @@ exports.clearImmediate = clearImmediate;
 /* 38 */
 /***/ (function(module, exports) {
 
-// removed by extract-text-webpack-plugin
-
-/***/ }),
-/* 39 */,
-/* 40 */,
-/* 41 */,
-/* 42 */,
-/* 43 */,
-/* 44 */,
-/* 45 */,
-/* 46 */,
-/* 47 */,
-/* 48 */
-/***/ (function(module, exports) {
-
 var accordions = document.getElementsByClassName('has-submenu');
 
 for (var i = 0; i < accordions.length; i++) {
+  if (accordions[i].classList.contains('is-active')) {
+    var submenu = accordions[i].nextElementSibling;
+    submenu.style.maxHeight = submenu.scrollHeight + "px";
+    submenu.style.marginTop = "0.75em";
+    submenu.style.marginBottom = "0.75em";
+  }
+
   accordions[i].onclick = function () {
     this.classList.toggle('is-active');
 
@@ -40334,6 +40326,12 @@ for (var i = 0; i < accordions.length; i++) {
     }
   };
 }
+
+/***/ }),
+/* 39 */
+/***/ (function(module, exports) {
+
+// removed by extract-text-webpack-plugin
 
 /***/ })
 /******/ ]);
