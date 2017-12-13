@@ -35,7 +35,7 @@
                 <td>{{ $user->email }}</td>
                 <td>{{ $user->created_at->toFormattedDateString() }}</td>
                 <td class="has-text-right">
-                  <a href="{{ route('users.show', $user->id) }}" class="button is-small is-success m-r-5">View</a>
+                  <a href="{{ route('users.show', $user->id) }}" class="button is-small is-light m-r-5">View</a>
                   <a href="{{ route('users.edit', $user->id) }}" class="button is-small is-primary">Edit</a>
                 </td>
               </tr>

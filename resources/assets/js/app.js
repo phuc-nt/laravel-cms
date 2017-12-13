@@ -20,3 +20,5 @@ $(document).ready(function() {
     $(this).toggleClass('is-open');
   });
 });
+
+require('./manage');

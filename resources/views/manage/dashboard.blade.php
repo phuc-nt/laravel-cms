@@ -1,7 +1,16 @@
 @extends('layouts.manage')
 
 @section('content')
-<h1>DASHBOARD</h1>
+  <div class="flex-container">
+    <div class="columns m-t-10">
+      <div class="column">
+        <h1 class="title">Manage Permissions</h1>
+      </div>
+
+    </div>
+    <hr class="m-t-0">
+
+  </div>
 @endsection
 
 @section('scripts')
