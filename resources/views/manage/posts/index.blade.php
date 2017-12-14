@@ -13,9 +13,9 @@
         </a>
       </div>
     </div>
-    <hr class="m-t-0">
+    <hr class="m-t-10">
 
-  </div>
+  </div> <!-- end of .flex-container -->
 @endsection
 
 @section('scripts')
