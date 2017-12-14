@@ -14717,3 +14717,38 @@ button.nav-item.is-active {
   margin: 0 5px;
 }
 
+.slug-widget {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: start;
+      -ms-flex-pack: start;
+          justify-content: flex-start;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+.slug-widget .input {
+  width: auto;
+}
+
+.wrapper {
+  margin-left: 8px;
+}
+
+.slug {
+  background-color: #fdfd96;
+  padding: 3px 5px;
+}
+
+.url-wrapper {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  height: 28px;
+}
+

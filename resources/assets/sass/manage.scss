@@ -112,3 +112,26 @@
     }
   }
 }
+
+// resources.assets.js.components.slugWidget
+.slug-widget {
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  .input {
+    width: auto;
+  }
+}
+.wrapper {
+  margin-left: 8px;
+}
+.slug {
+  background-color: #fdfd96;
+  padding: 3px 5px
+}
+
+.url-wrapper {
+  display: flex;
+  align-items: center;
+  height: 28px;
+}

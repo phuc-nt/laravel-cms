@@ -18,12 +18,13 @@
             <b-input
                 type="text"
                 placeholder="Post Title"
-                size="is-large">
+                size="is-large"
+                v-model="title">
             </b-input>
           </b-field>
-          <p>
-            {{ url('/blog') }}
-          </p>
+
+          <slug-widget url="{{ url('/') }}" subdirectory="blog" :title="title" @slug-changed="updateSlug"></slug-widget>
+
           <b-field class="m-t-30">
             <b-input
                 type="textarea"
@@ -79,7 +80,15 @@
   <script>
     var app = new Vue({
       el: '#app',
-      data: {}
+      data: {
+        title: '',
+        slug: ''
+      },
+      methods: {
+        updateSlug: function (val) {
+          this.slug = val;
+        }
+      }
     });
   </script>
 @endsection
