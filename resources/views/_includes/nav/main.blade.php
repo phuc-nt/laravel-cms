@@ -4,10 +4,20 @@
       <a class="nav-item is-paddingless" href="{{route('home')}}">
         <img src="{{asset('images/phucnt-logo.png')}}" alt="Phucnt logo">
       </a>
+
+      @if (Request::segment(1) == "manage")
+        <a class="nav-item is-hidden-desktop" id="admin-slideout-button">
+          <span class="icon"><i class="fa fa-arrow-circle-o-right"></i></span>
+        </a>
+      @endif
+
       <a class="nav-item is-tab is-hidden-mobile m-l-10">Learn</a>
       <a class="nav-item is-tab is-hidden-mobile">Discuss</a>
       <a class="nav-item is-tab is-hidden-mobile">Share</a>
+
     </div>
+
+
     <span class="nav-toggle">
       <span></span>
       <span></span>

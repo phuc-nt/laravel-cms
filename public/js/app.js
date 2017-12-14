@@ -40300,6 +40300,12 @@ exports.clearImmediate = clearImmediate;
 /***/ (function(module, exports) {
 
 var accordions = document.getElementsByClassName('has-submenu');
+var adminSlideoutButton = document.getElementById('admin-slideout-button');
+
+adminSlideoutButton.onclick = function () {
+  this.classList.toggle('is-active');
+  document.getElementById('admin-side-menu').classList.toggle('is-active');
+};
 
 for (var i = 0; i < accordions.length; i++) {
   if (accordions[i].classList.contains('is-active')) {
