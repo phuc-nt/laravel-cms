@@ -23,6 +23,7 @@
               <th>#</th>
               <th>Name</th>
               <th>Email</th>
+              <th>Role</th>
               <th>Created At</th>
               <th></th>
             </tr>
@@ -33,6 +34,11 @@
                 <td>{{ $user->id }}</td>
                 <td>{{ $user->name }}</td>
                 <td>{{ $user->email }}</td>
+                <td>
+                  @foreach ($user->roles as $role)
+                    {{ $role->display_name }}
+                  @endforeach
+                </td>
                 <td>{{ $user->created_at->toFormattedDateString() }}</td>
                 <td class="has-text-right">
                   <a href="{{ route('users.show', $user->id) }}" class="button is-small is-light m-r-5">View</a>
