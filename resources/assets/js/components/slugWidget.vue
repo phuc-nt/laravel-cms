@@ -53,42 +53,71 @@
     },
     data: function() {
       return {
-        slug: this.convertTitle(),
+        slug: this.setSlug(this.title),
         isEditing: false,
         customSlug: '',
-        wasEdited: false
+        wasEdited: false,
+        api_token: this.$root.api_token
       }
     },
     methods: {
-      convertTitle: function () {
-        return Slug(this.title)
-      },
       editSlug: function () {
         this.customSlug = this.slug;
+        this.$emit('edit', this.slug);
         this.isEditing = true;
       },
       saveSlug: function () {
         if (this.customSlug !== this.slug) {
           this.wasEdited = true;
         }
-        this.slug = Slug(this.customSlug);
+        this.setSlug(this.customSlug);
+        this.$emit('save', this.slug);
         this.isEditing = false;
       },
       resetSlug: function () {
-        this.slug = this.convertTitle();
+        this.setSlug(this.title);
+        this.$emit('reset', this.slug);
         this.wasEdited = false;
         this.isEditing = false;
+      },
+      setSlug: function (newVal, count = 0) {
+        // Slugify the newVal
+        let slug = Slug(newVal + (count > 0 ? `-${count}` : ''));
+        let vm = this;
+
+        if (this.api_token && slug) {
+          // test to see  if unique
+          axios.get('/api/posts/unique', {
+            params: {
+              api_token: vm.api_token,
+              slug: slug
+            }
+          }).then(function (response) {
+            // if unique, the set the slug and emit event
+            if (response.data) { // if response == true -> unique
+              vm.slug = slug;
+              vm.$emit('slug-changed', vm.slug);
+            } else {
+              // if not, customize the slug to make it unique and test again
+              vm.setSlug(newVal, count + 1)
+            }
+
+          }).catch(function (error) {
+            console.log(error);
+          });
+        }
+
       }
     },
     watch: {
       title: _.debounce(function () {
         if (this.wasEdited === false) {
-          this.slug = this.convertTitle()
+          this.setSlug(this.title);
         }
-      }, 250),
-      slug: function (val) {
-        this.$emit('slug-changed', val);
-      }
+
+        // run ajax to see if slug is unique
+        // if not unique, customize the slug to make it unique
+      }, 500)
     }
   }
 </script>
